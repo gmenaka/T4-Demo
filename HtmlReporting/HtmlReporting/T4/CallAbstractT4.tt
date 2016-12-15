@@ -1,0 +1,12 @@
+﻿<#@ template language="C#" inherits="AbstractBaseTemplate" #>  
+
+<#   
+  // Set the base template properties:  
+  base.Description = "Description for this derived class";   
+
+  // Run the base template:  
+  base.TransformText();    
+#>  
+End material for CallAbstractT4.  
+
+ 

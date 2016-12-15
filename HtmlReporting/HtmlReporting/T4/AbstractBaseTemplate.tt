@@ -1,0 +1,23 @@
+﻿<#@ template language="C#" #>  
+  
+Here is the description for this derived template:  
+ <#= this.Description #>  
+  
+Here is the fragment specific to this derived template:  
+<#= this.getWeatherDataCodeGen("Calling... ") #>
+<#   
+  this.PushIndent("  ");  
+  this.getWeatherDataCodeGen("Calling... ");
+  this.PopIndent();  
+#>  
+
+<#+  
+  protected string Description = "";  
+  // Insert any template procedures here
+  string getWeatherDataCodeGen(string Input) {	
+	return "Hello from Abstract Template -->" + Input;   
+  }
+
+  // 'abstract' method to be defined in derived classes:  
+  protected virtual void SpecificFragment(int n) { }  
+#>

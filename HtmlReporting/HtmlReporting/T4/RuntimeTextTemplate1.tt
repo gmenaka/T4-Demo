@@ -1,0 +1,29 @@
+﻿<#@ template debug="true" #>
+<#@ output extension=".html" #>
+<#@ Assembly Name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ parameter name="Title" type="System.String"#>
+<#@ parameter name="Author" type="System.String"#>
+<#@ parameter name="Date" type="System.DateTime"#>
+<#@ parameter name="Category" type="System.String"#>
+<#@ parameter name="Tags"
+ type="System.Collections.Generic.List<String>"#>
+<div class="block_post" >
+<h2><#= this.Title #></h2> <div class="post_info">
+ <ul>
+ <li><p>Date: <a href="#"><#= this.Date #></a></p></li>
+ <li><p>Posted by: <a href="#"><#= this.Author #></a></p></li>
+ <li><p>Category: <a href="#"><#= this.Category #></a></p></li>
+ <li><p>Tags:
+<#
+foreach(var tag in this.Tags) {
+#>
+
+<a href="#"><#= tag #></a><# if (this.Tags.First() != tag && this.Tags.Last() != tag) this.Write(",");#>
+<#
+}
+#>
+ </p></li>
+ </ul>
+ </div>
+</div> 
